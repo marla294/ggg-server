@@ -14,7 +14,7 @@ import { sendPasswordResetEmail } from './lib/mail';
 import { permissionsList } from './schemas/fields';
 
 const databaseURL =
-  process.env.DATABASE_URL || 'mongodb://localhost/keystone-ggg';
+  process.env.DATABASE_URL || 'mongodb+srv://marla294:Ebe1dnY9GvuyHvuR@gggcluster.le4fn.mongodb.net/ggg?retryWrites=true&w=majority';
 
 const sessionConfig = {
   maxAge: 60 * 60 * 24 * 365, // How long should a user stay logged in
