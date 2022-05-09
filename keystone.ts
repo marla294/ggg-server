@@ -41,7 +41,7 @@ export default withAuth(
   config({
     server: {
       cors: {
-        origin: [process.env.FRONTEND_URL, "https://gogetgroceries-backend.herokuapp"],
+        origin: [process.env.FRONTEND_URL, "https://gogetgroceries-backend.herokuapp.com"],
         credentials: true, // pass along cookie from session config
       },
     },
