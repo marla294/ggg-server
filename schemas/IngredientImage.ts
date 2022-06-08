@@ -15,8 +15,8 @@ export const IngredientImage = list({
   access: {
     create: isSignedIn,
     read: () => true,
-    update: permissions.canManageIngredients,
-    delete: permissions.canManageIngredients,
+    update: isSignedIn,
+    delete: isSignedIn,
   },
   fields: {
     image: cloudinaryImage({

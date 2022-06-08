@@ -9,9 +9,11 @@ import { User } from './schemas/User';
 import { Ingredient } from './schemas/Ingredient';
 import { IngredientImage } from './schemas/IngredientImage';
 import { Role } from './schemas/Role';
+import { ShoppingListItem } from './schemas/ShoppingListItem';
 import { insertSeedData } from './seed-data';
 import { sendPasswordResetEmail } from './lib/mail';
 import { permissionsList } from './schemas/fields';
+import { extendGraphqlSchema } from './mutations';
 
 const databaseURL =
   process.env.DATABASE_URL || 'mongodb+srv://marla294:Ebe1dnY9GvuyHvuR@gggcluster.le4fn.mongodb.net/ggg?retryWrites=true&w=majority';
@@ -61,7 +63,9 @@ export default withAuth(
       Ingredient,
       IngredientImage,
       Role,
+      ShoppingListItem,
     }),
+    extendGraphqlSchema,
     ui: {
       // Only show the UI for people who pass this test
       isAccessAllowed: ({ session }) => !!session?.data,

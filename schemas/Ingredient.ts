@@ -29,9 +29,9 @@ export const Ingredient = list({
     store: select({
       options: [
         { label: 'uncategorized', value: 'uncategorized' },
-        { label: 'whole foods', value: 'whole foods' },
-        { label: 'hyvee', value: 'hyvee' },
         { label: 'family fare', value: 'family fare' },
+        { label: 'hyvee', value: 'hyvee' },
+        { label: 'whole foods', value: 'whole foods' },
       ],
       defaultValue: 'uncategorized',
       ui: {
@@ -42,11 +42,13 @@ export const Ingredient = list({
     // TODO: make separate schema for units later on
     units: select({
       options: [
-        { label: 'uncategorized', value: 'uncategorized' },
+        { label: 'none', value: 'none' },
+        { label: 'can', value: 'can' },
+        { label: 'cup', value: 'cup' },
+        { label: 'lb', value: 'lb' },
         { label: 'oz', value: 'oz' },
         { label: 'tbs', value: 'tbs' },
         { label: 'tsp', value: 'tsp' },
-        { label: 'can', value: 'can' },
       ],
       defaultValue: 'uncategorized',
       ui: {
@@ -58,10 +60,17 @@ export const Ingredient = list({
     aisle: select({
       options: [
         { label: 'uncategorized', value: 'uncategorized' },
-        { label: 'produce', value: 'produce' },
-        { label: 'meat', value: 'meat' },
-        { label: 'dairy', value: 'dairy' },
+        { label: 'baked goods', value: 'baked goods' },
+        { label: 'bakery', value: 'bakery' },
         { label: 'canned goods', value: 'canned goods' },
+        { label: 'condiments', value: 'condiments' },
+        { label: 'dairy', value: 'dairy' },
+        { label: 'frozen', value: 'frozen' },
+        { label: 'meat', value: 'meat' },
+        { label: 'paper', value: 'paper' },
+        { label: 'pasta', value: 'pasta' },
+        { label: 'produce', value: 'produce' },
+        { label: 'seafood', value: 'seafood' },
       ],
       defaultValue: 'uncategorized',
       ui: {
@@ -73,10 +82,11 @@ export const Ingredient = list({
     homeArea: select({
       options: [
         { label: 'uncategorized', value: 'uncategorized' },
-        { label: 'pantry', value: 'pantry' },
-        { label: 'fridge', value: 'fridge' },
         { label: 'freezer', value: 'freezer' },
+        { label: 'fridge', value: 'fridge' },
         { label: 'kitchen', value: 'kitchen' },
+        { label: 'pantry', value: 'pantry' },
+        { label: 'upstairs', value: 'upstairs' },
       ],
       defaultValue: 'uncategorized',
       ui: {

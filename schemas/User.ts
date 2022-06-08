@@ -32,5 +32,12 @@ export const User = list({
       ref: 'Ingredient.user',
       many: true,
     }),
+    shoppingList: relationship({
+      ref: 'ShoppingListItem.user',
+      many: true,
+      ui: {
+        createView: { fieldMode: 'hidden' },
+      },
+    }),
   },
 });
