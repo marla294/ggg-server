@@ -10,13 +10,15 @@ import { Ingredient } from './schemas/Ingredient';
 import { IngredientImage } from './schemas/IngredientImage';
 import { Role } from './schemas/Role';
 import { ShoppingListItem } from './schemas/ShoppingListItem';
+import { Recipe } from './schemas/Recipe';
 import { insertSeedData } from './seed-data';
 import { sendPasswordResetEmail } from './lib/mail';
 import { permissionsList } from './schemas/fields';
 import { extendGraphqlSchema } from './mutations';
 
 const databaseURL =
-  process.env.DATABASE_URL || 'mongodb+srv://marla294:Ebe1dnY9GvuyHvuR@gggcluster.le4fn.mongodb.net/ggg?retryWrites=true&w=majority';
+  process.env.DATABASE_URL ||
+  'mongodb+srv://marla294:Ebe1dnY9GvuyHvuR@gggcluster.le4fn.mongodb.net/ggg?retryWrites=true&w=majority';
 
 const sessionConfig = {
   maxAge: 60 * 60 * 24 * 365, // How long should a user stay logged in
@@ -64,6 +66,7 @@ export default withAuth(
       IngredientImage,
       Role,
       ShoppingListItem,
+      Recipe,
     }),
     extendGraphqlSchema,
     ui: {
