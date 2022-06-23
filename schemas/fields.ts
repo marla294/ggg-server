@@ -5,6 +5,10 @@ export const permissionFields = {
     defaultValue: false,
     label: 'User can update and delete any ingredient',
   }),
+  canManageRecipes: checkbox({
+    defaultValue: false,
+    label: 'User can update and delete any recipe',
+  }),
   canSeeOtherUsers: checkbox({
     defaultValue: false,
     label: 'User can query other users',

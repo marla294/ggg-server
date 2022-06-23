@@ -39,7 +39,7 @@ export const User = list({
         createView: { fieldMode: 'hidden' },
       },
     }),
-    recipe: relationship({
+    recipes: relationship({
       ref: 'Recipe.user',
       many: true,
       ui: {

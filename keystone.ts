@@ -8,6 +8,7 @@ import {
 import { User } from './schemas/User';
 import { Ingredient } from './schemas/Ingredient';
 import { IngredientImage } from './schemas/IngredientImage';
+import { RecipeImage } from './schemas/RecipeImage';
 import { Role } from './schemas/Role';
 import { ShoppingListItem } from './schemas/ShoppingListItem';
 import { Recipe } from './schemas/Recipe';
@@ -67,6 +68,7 @@ export default withAuth(
       Role,
       ShoppingListItem,
       Recipe,
+      RecipeImage,
     }),
     extendGraphqlSchema,
     ui: {
