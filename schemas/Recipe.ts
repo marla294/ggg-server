@@ -31,5 +31,12 @@ export const Recipe = list({
         connect: { id: context.session.itemId },
       }),
     }),
+    ingredients: relationship({
+      ref: 'RecipeItem.recipe',
+      many: true,
+      ui: {
+        createView: { fieldMode: 'hidden' },
+      },
+    }),
   },
 });
