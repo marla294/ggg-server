@@ -20,7 +20,7 @@ async function updateRecipeItemQuantity(
   const allRecipeItems = await context.lists.RecipeItem.findMany({
     where: {
       recipe: { id: recipeId },
-      ingredient: { id: ingredientId },
+      AND: { ingredient: { id: ingredientId } },
     },
     resolveFields: 'id, quantity',
   });
