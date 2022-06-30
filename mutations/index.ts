@@ -2,6 +2,7 @@ import { graphQLSchemaExtension } from '@keystone-next/keystone/schema';
 import addToShoppingList from './addToShoppingList';
 import addToRecipe from './addToRecipe';
 import updateShoppingItemQuantity from './updateShoppingItemQuantity';
+import updateRecipeItemQuantity from './updateRecipeItemQuantity';
 
 const graphql = String.raw;
 export const extendGraphqlSchema = graphQLSchemaExtension({
@@ -18,12 +19,20 @@ export const extendGraphqlSchema = graphQLSchemaExtension({
         quantity: String
       ): ShoppingListItem
     }
+    type Mutation {
+      updateRecipeItemQuantity(
+        ingredientId: ID
+        recipeId: ID
+        quantity: String
+      ): ShoppingListItem
+    }
   `,
   resolvers: {
     Mutation: {
       addToShoppingList,
       addToRecipe,
       updateShoppingItemQuantity,
+      updateRecipeItemQuantity,
     },
   },
 });
