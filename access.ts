@@ -39,12 +39,26 @@ export const rules = {
       return false;
     }
 
-    // If they have the permission to manage all ingredients, return true
+    // If they have the permission to manage all recipes, return true
     if (permissions.canManageRecipes({ session })) {
       return true;
     }
 
-    // If they are the owner of this ingredient, they can also manage it
+    // If they are the owner of this recipe, they can also manage it
+    // This is a "where" filter that we can use with graphql
+    return { user: { id: session.itemId } };
+  },
+  canManageRecipeImages({ session }: ListAccessArgs) {
+    if (!isSignedIn({ session })) {
+      return false;
+    }
+
+    // If they have the permission to manage all recipes, return true
+    if (permissions.canManageRecipeImages({ session })) {
+      return true;
+    }
+
+    // If they are the owner of this recipe, they can also manage it
     // This is a "where" filter that we can use with graphql
     return { user: { id: session.itemId } };
   },

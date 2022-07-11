@@ -14,9 +14,9 @@ export const cloudinary = {
 export const RecipeImage = list({
   access: {
     create: isSignedIn,
-    read: rules.canManageRecipes,
-    update: rules.canManageRecipes,
-    delete: rules.canManageRecipes,
+    read: rules.canManageRecipeImages,
+    update: rules.canManageRecipeImages,
+    delete: rules.canManageRecipeImages,
   },
   fields: {
     image: cloudinaryImage({
@@ -25,6 +25,12 @@ export const RecipeImage = list({
     }),
     altText: text(),
     recipe: relationship({ ref: 'Recipe.photo' }),
+    user: relationship({
+      ref: 'User.recipeImages',
+      defaultValue: ({ context }) => ({
+        connect: { id: context.session.itemId },
+      }),
+    }),
   },
   ui: {
     listView: {
