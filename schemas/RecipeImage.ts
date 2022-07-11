@@ -2,7 +2,7 @@ import { cloudinaryImage } from '@keystone-next/cloudinary';
 import { relationship, text } from '@keystone-next/fields';
 import { list } from '@keystone-next/keystone/schema';
 import 'dotenv/config';
-import { isSignedIn, permissions } from '../access';
+import { isSignedIn, permissions, rules } from '../access';
 
 export const cloudinary = {
   cloudName: process.env.CLOUDINARY_CLOUD_NAME,
@@ -14,9 +14,9 @@ export const cloudinary = {
 export const RecipeImage = list({
   access: {
     create: isSignedIn,
-    read: () => true,
-    update: isSignedIn,
-    delete: isSignedIn,
+    read: rules.canManageRecipes,
+    update: rules.canManageRecipes,
+    delete: rules.canManageRecipes,
   },
   fields: {
     image: cloudinaryImage({
