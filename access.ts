@@ -48,6 +48,20 @@ export const rules = {
     // This is a "where" filter that we can use with graphql
     return { user: { id: session.itemId } };
   },
+  canManageRecipeItems({ session }: ListAccessArgs) {
+    if (!isSignedIn({ session })) {
+      return false;
+    }
+
+    // If they have the permission to manage all recipes, return true
+    if (permissions.canManageRecipeItems({ session })) {
+      return true;
+    }
+
+    // If they are the owner of this recipe, they can also manage it
+    // This is a "where" filter that we can use with graphql
+    return { user: { id: session.itemId } };
+  },
   canManageRecipeImages({ session }: ListAccessArgs) {
     if (!isSignedIn({ session })) {
       return false;

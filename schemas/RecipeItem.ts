@@ -5,9 +5,9 @@ import { isSignedIn, rules } from '../access';
 export const RecipeItem = list({
   access: {
     create: isSignedIn,
-    read: isSignedIn,
-    update: isSignedIn,
-    delete: isSignedIn,
+    read: rules.canManageRecipeItems,
+    update: rules.canManageRecipeItems,
+    delete: rules.canManageRecipeItems,
   },
   fields: {
     quantity: integer({
@@ -16,5 +16,16 @@ export const RecipeItem = list({
     }),
     ingredient: relationship({ ref: 'Ingredient' }),
     recipe: relationship({ ref: 'Recipe.ingredients' }),
+    user: relationship({
+      ref: 'User.recipeItems',
+      defaultValue: ({ context }) => ({
+        connect: { id: context.session.itemId },
+      }),
+    }),
+  },
+  ui: {
+    listView: {
+      initialColumns: ['ingredient'],
+    },
   },
 });

@@ -117,6 +117,10 @@ export const Ingredient = list({
   ui: {
     listView: {
       initialColumns: ['name', 'units', 'aisle', 'homeArea', 'store'],
+      initialSort: {
+        field: 'name',
+        direction: 'ASC',
+      },
     },
   },
 });

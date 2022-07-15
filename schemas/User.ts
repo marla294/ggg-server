@@ -53,5 +53,12 @@ export const User = list({
         createView: { fieldMode: 'hidden' },
       },
     }),
+    recipeItems: relationship({
+      ref: 'RecipeItem.user',
+      many: true,
+      ui: {
+        createView: { fieldMode: 'hidden' },
+      },
+    }),
   },
 });
