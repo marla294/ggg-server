@@ -25,7 +25,7 @@ async function addToShoppingList(
   if (existingShoppingListItem) {
     return context.lists.ShoppingListItem.updateOne({
       id: existingShoppingListItem.id,
-      data: { quantity: existingShoppingListItem.quantity + +quantity },
+      data: { quantity: existingShoppingListItem.quantity + +quantity * 10 },
     });
   }
   // 3.2 If not, create a new shopping list item
@@ -33,7 +33,7 @@ async function addToShoppingList(
     data: {
       ingredient: { connect: { id: ingredientId } },
       user: { connect: { id: session.itemId } },
-      quantity: +quantity,
+      quantity: +quantity * 10,
     },
   });
 }
