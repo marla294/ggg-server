@@ -30,7 +30,7 @@ async function addToRecipe(
   if (existingRecipeItem) {
     return context.lists.RecipeItem.updateOne({
       id: existingRecipeItem.id,
-      data: { quantity: existingRecipeItem.quantity + +quantity },
+      data: { quantity: existingRecipeItem.quantity + +quantity * 10 },
     });
   }
   // 3.2 If not, create a new recipe item
@@ -38,7 +38,7 @@ async function addToRecipe(
     data: {
       ingredient: { connect: { id: ingredientId } },
       recipe: { connect: { id: recipeId } },
-      quantity: +quantity,
+      quantity: +quantity * 10,
     },
   });
 }

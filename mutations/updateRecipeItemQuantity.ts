@@ -30,7 +30,7 @@ async function updateRecipeItemQuantity(
   if (existingRecipeItem) {
     return context.lists.RecipeItem.updateOne({
       id: existingRecipeItem.id,
-      data: { quantity: +quantity },
+      data: { quantity: +quantity * 10 },
     });
   }
 }
