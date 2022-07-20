@@ -25,7 +25,7 @@ async function updateShoppingItemQuantity(
   if (existingShoppingListItem) {
     return context.lists.ShoppingListItem.updateOne({
       id: existingShoppingListItem.id,
-      data: { quantity: +quantity },
+      data: { quantity: +quantity * 10 },
     });
   }
 }
