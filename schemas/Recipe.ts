@@ -1,4 +1,4 @@
-import { relationship, text } from '@keystone-next/fields';
+import { relationship, select, text } from '@keystone-next/fields';
 import { list } from '@keystone-next/keystone/schema';
 import { isSignedIn, rules } from '../access';
 
@@ -36,6 +36,26 @@ export const Recipe = list({
       many: true,
       ui: {
         createView: { fieldMode: 'hidden' },
+      },
+    }),
+    type: select({
+      options: [
+        { label: 'uncategorized', value: 'uncategorized' },
+        { label: 'dessert', value: 'dessert' },
+        { label: 'meat', value: 'meat' },
+        { label: 'pasta', value: 'pasta' },
+        { label: 'salad', value: 'salad' },
+        { label: 'sandwich', value: 'sandwich' },
+        { label: 'shopping list', value: 'shopping list' },
+        { label: 'side', value: 'side' },
+        { label: 'snack', value: 'snack' },
+        { label: 'soup', value: 'soup' },
+        { label: 'spice blend', value: 'spice blend' },
+      ],
+      defaultValue: 'uncategorized',
+      ui: {
+        displayMode: 'select',
+        createView: { fieldMode: 'edit' },
       },
     }),
   },
