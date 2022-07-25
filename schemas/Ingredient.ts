@@ -45,6 +45,7 @@ export const Ingredient = list({
         { label: 'none', value: 'none' },
         { label: 'bag', value: 'bag' },
         { label: 'box', value: 'box' },
+        { label: 'bunch', value: 'bunch' },
         { label: 'can', value: 'can' },
         { label: 'cup', value: 'cup' },
         { label: 'dozen', value: 'dozen' },
