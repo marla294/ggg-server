@@ -11,6 +11,7 @@ export const Recipe = list({
   },
   fields: {
     name: text({ isRequired: true }),
+    recipeLink: text({ isRequired: false }),
     description: text({
       ui: {
         displayMode: 'textarea',
