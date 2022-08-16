@@ -21,6 +21,7 @@ export const User = list({
       isRequired: true,
       minLength: 8,
     }),
+    joinDate: text({ isRequired: false }),
     role: relationship({
       ref: 'Role.assignedTo',
       access: {
